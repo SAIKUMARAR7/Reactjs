@@ -49,7 +49,7 @@ useEffect(() => {
   const [items,setitems]=useState(0);
   const [page,setpage]=useState(0);
 
-  const amount=(val,i)=>{
+  const increaseamount=(val,i)=>{
   setitems(items+1)
   let temp=count
   let first=temp[i]
@@ -60,7 +60,7 @@ useEffect(() => {
   settotalCost(s)
     console.log(count)
   }
-  const amount1=(val,i)=>{
+  const decreaseamount=(val,i)=>{
   setCount(count - 1)
   setitems(items-1)
   let temp=count
@@ -97,12 +97,12 @@ const pagenumber=( )=>{
                                 <div className='ml-2'>
                                 {(sum[i]!==0)&&(
                                     <div className="flex justify-evenly">
-                                    <span className="btn btn-light"><button onClick={() => amount1(s.price,i)}>-</button></span>
+                                    <span className="btn btn-light"><button onClick={() => decreaseamount(s.price,i)}>-</button></span>
                                     <span className="btn btn-light">{sum[i]}</span>
-                                    <span className="btn btn-light"><button onClick={() => amount(s.price,i)}>+</button></span>
+                                    <span className="btn btn-light"><button onClick={() => increaseamount(s.price,i)}>+</button></span>
                                     </div>
                                     )}
-                                  {(sum[i]===0)&&( <span className="btn btn-light"><button onClick={() => amount(s.price,i)}>Add</button></span>)}
+                                  {(sum[i]===0)&&( <span className="btn btn-light"><button onClick={() => increaseamount(s.price,i)}>Add</button></span>)}
                                 </div>
                             </div>
                         </div>
